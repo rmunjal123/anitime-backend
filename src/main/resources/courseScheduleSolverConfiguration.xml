@@ -5,7 +5,7 @@
     <easyScoreCalculatorClass>com.isrs.roster.JobScheduleScoreCalculator</easyScoreCalculatorClass>
     </scoreDirectorFactory>
 <termination>
-        <secondsSpentLimit>2</secondsSpentLimit>
+        <secondsSpentLimit>10</secondsSpentLimit>
     </termination>
 
 </solver>

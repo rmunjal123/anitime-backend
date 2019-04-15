@@ -8,7 +8,7 @@ public class Employee {
     private Integer employeeID;
     private Integer employeeGrade;
     private List<Integer> preferredLocation;
-    private List<Integer> preferredShift;
+    private List<Integer> shiftAvailability;
 
     public String getName() {
         return name;
@@ -34,13 +34,13 @@ public class Employee {
     public void setPreferredLocation(List<Integer> preferredLocation) {
         this.preferredLocation = preferredLocation;
     }
+	public List<Integer> getShiftAvailability() {
+		return shiftAvailability;
+	}
+	public void setShiftAvailability(List<Integer> shiftAvailability) {
+		this.shiftAvailability = shiftAvailability;
+	}
 
-    public List<Integer> getPreferredShift() {
-        return preferredShift;
-    }
-    public void setPreferredShift(List<Integer> preferredShift) {
-        this.preferredShift = preferredShift;
-    }
 }
 
 

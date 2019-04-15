@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.isrs.roster.test.OptaPlannerUnitTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.872 s <<< FAILURE! - in com.isrs.roster.test.OptaPlannerUnitTest
-test_whenCustomJavaSolver  Time elapsed: 0.862 s  <<< ERROR!
-java.lang.IllegalArgumentException: 
-The solutionClass (class com.isrs.roster.JobSchedule)'s entityCollectionProperty (bean property jobAssignmentList on class com.isrs.roster.JobSchedule) should never return null.
-Maybe the getter/method always returns null instead of the actual data.
-Maybe that property (jobAssignmentList) was set with null instead of an empty collection/array when the class (JobSchedule) instance was created.
-	at com.isrs.roster.test.OptaPlannerUnitTest.test_whenCustomJavaSolver(OptaPlannerUnitTest.java:89)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.899 s - in com.isrs.roster.test.OptaPlannerUnitTest

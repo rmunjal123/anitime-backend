@@ -8,12 +8,12 @@ import org.slf4j.LoggerFactory;
 @PlanningEntity
 public class JobAssignment {
 	
-    Logger logger = LoggerFactory.getLogger("JobSchedule");
+    Logger logger = LoggerFactory.getLogger("JobAssignment");
 
     private Employee employee;
     private Job job;
 
-    @PlanningVariable(valueRangeProviderRefs = {"employeeRange"})
+    @PlanningVariable(valueRangeProviderRefs = {"employee"})
     public Employee getEmployee() {
         return employee;
     }

@@ -9,6 +9,7 @@ import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
 import java.lang.Math;
 
 public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedule> {
+	
     @Override
     public HardSoftScore calculateScore(JobSchedule jobSchedule) {
         int hardScore = 0;
@@ -31,12 +32,12 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             // Hard Contraints
 
             // No unassigned Job
-            if (jobAssignment.getEmployee() == null) {
-                hardScore += -1;
-            }
+            //if (jobAssignment.getEmployee() == null) {
+            //    hardScore += -1;
+            //}
 
             // No unavailable employee assigned
-            if (!employee.getPreferredShift().contains(job.getShift())){
+            if (!employee.getShiftAvailability().contains(job.getShift())){
                 hardScore += -1;
             }
 

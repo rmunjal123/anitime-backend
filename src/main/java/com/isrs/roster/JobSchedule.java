@@ -1,5 +1,6 @@
 package com.isrs.roster;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
@@ -12,17 +13,12 @@ import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 @PlanningSolution
 public class JobSchedule {
 
-    private List<Employee> employeeList;
-    private List<Job> jobList;
-    private List<JobAssignment> jobAssignmentList;
+    private List<Employee> employeeList = new ArrayList<>();
+    private List<Job> jobList = new ArrayList<>();
+    private List<JobAssignment> jobAssignmentList = new ArrayList<>();
     private HardSoftScore score;
-
-
-    // public JobSchedule(){
-    // 	employeeList = new List<Employee>();
-    // 	jobAssignmentList = new List<Job>();
-    // }
-    @ValueRangeProvider(id = "employeeRange")
+    
+    @ValueRangeProvider(id = "employee")
     @ProblemFactCollectionProperty
     public List<Employee> getEmployeeList() {
         return employeeList;
