@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.isrs.roster.test.OptaPlannerUnitTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in com.isrs.roster.test.OptaPlannerUnitTest
+com.isrs.roster.test.OptaPlannerUnitTest  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The method getshiftrosterList() from the type ShiftSchedule refers to the missing type shiftroster
+	shiftroster cannot be resolved to a type
+
+	at com.isrs.roster.test.OptaPlannerUnitTest.setUp(OptaPlannerUnitTest.java:22)
+

@@ -1,0 +1,8 @@
+com/isrs/roster/PersistableIdComparator.class
+com/isrs/roster/JobScheduleScoreCalculator.class
+com/isrs/roster/JobAssignment.class
+com/isrs/roster/App.class
+com/isrs/roster/AbstractPersistable.class
+com/isrs/roster/JobSchedule.class
+com/isrs/roster/Employee.class
+com/isrs/roster/Job.class

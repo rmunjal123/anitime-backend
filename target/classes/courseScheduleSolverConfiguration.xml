@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+    <scanAnnotatedClasses/>
+    <scoreDirectorFactory>
+    <easyScoreCalculatorClass>com.isrs.roster.JobScheduleScoreCalculator</easyScoreCalculatorClass>
+    </scoreDirectorFactory>
+<termination>
+        <secondsSpentLimit>2</secondsSpentLimit>
+    </termination>
+
+</solver>

@@ -1,0 +1,7 @@
+com\isrs\roster\Employee$AvailabilityState.class
+com\isrs\roster\Employee.class
+com\isrs\roster\ScoreCalculator.class
+com\isrs\roster\Shift.class
+com\isrs\roster\shiftroster.class
+com\isrs\roster\App.class
+com\isrs\roster\ShiftSchedule.class
