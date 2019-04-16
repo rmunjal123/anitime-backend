@@ -1,8 +1,7 @@
 package com.isrs.roster;
 
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ArrayList;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
@@ -11,14 +10,24 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 @PlanningSolution
-public class JobSchedule {
+public class JobSchedule extends AbstractPersistable {
 
-    private List<Employee> employeeList = new ArrayList<>();
-    private List<Job> jobList = new ArrayList<>();
-    private List<JobAssignment> jobAssignmentList = new ArrayList<>();
+    private List<Employee> employeeList;
+    private List<Job> jobList;
+    private List<JobAssignment> jobAssignmentList;
     private HardSoftScore score;
-    
-    @ValueRangeProvider(id = "employee")
+
+
+    public JobSchedule(){
+        jobAssignmentList = new ArrayList<JobAssignment>();
+    }
+
+    public JobSchedule(long id, List<Employee> employeeList, List<Job> jobList) {
+        this.employeeList = employeeList;
+        this.jobList = jobList;
+    } 
+
+    @ValueRangeProvider(id = "employeeRange")
     @ProblemFactCollectionProperty
     public List<Employee> getEmployeeList() {
         return employeeList;
