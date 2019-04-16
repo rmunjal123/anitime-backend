@@ -27,7 +27,7 @@ public class JobSchedule extends AbstractPersistable {
         this.jobList = jobList;
     } 
 
-    @ValueRangeProvider(id = "employeeRange")
+    @ValueRangeProvider(id = "employee")
     @ProblemFactCollectionProperty
     public List<Employee> getEmployeeList() {
         return employeeList;

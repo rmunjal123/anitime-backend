@@ -36,8 +36,14 @@ public class OptaPlannerUnitTest {
 		
 		// create conflict employee
 		Employee emp = new Employee();
+		emp.setName("Hi");
+		emp.setEmployeeID(100);
+		emp.setEmployeeGrade(1);
+		emp.setPreferredLocation(null);
+		emp.setShiftAvailability(null);
+		
 		List<Integer> shiftAvailabilty = new ArrayList<Integer>(2);
-		emp.setShiftAvailability(shiftAvailability);
+		//emp.setShiftAvailability(shiftAvailability);
 		
 		// Dummy JobList from frontend
 		List<Job> jobList = new ArrayList<>();
@@ -64,7 +70,7 @@ public class OptaPlannerUnitTest {
 		
 		for (int i=0; i<=JobAssignmentList.size(); i++) {
 			JobAssignment jobAssignment = new JobAssignment();
-			jobAssignment.setEmployee(empList.get(i));
+			//jobAssignment.setEmployee(empList.get(i));
 			jobAssignment.setJob(jobList.get(i));
 		}
 
