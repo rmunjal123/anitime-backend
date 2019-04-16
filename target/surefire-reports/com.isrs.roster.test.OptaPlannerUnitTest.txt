@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.isrs.roster.test.OptaPlannerUnitTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.637 s - in com.isrs.roster.test.OptaPlannerUnitTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.886 s <<< FAILURE! - in com.isrs.roster.test.OptaPlannerUnitTest
+test_whenCustomJavaSolver  Time elapsed: 0.882 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.isrs.roster.test.OptaPlannerUnitTest.test_whenCustomJavaSolver(OptaPlannerUnitTest.java:136)
+

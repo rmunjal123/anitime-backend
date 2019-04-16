@@ -6,7 +6,7 @@
     </scoreDirectorFactory>
     
     <termination>
-        <secondsSpentLimit>40</secondsSpentLimit>
+        <secondsSpentLimit>2</secondsSpentLimit>
     </termination>
     
       <constructionHeuristic>

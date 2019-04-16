@@ -1,12 +1,13 @@
 package com.isrs.roster;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
-import java.lang.Math;
 
 public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedule> {
 	
@@ -14,7 +15,7 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
     public HardSoftScore calculateScore(JobSchedule jobSchedule) {
         int hardScore = 0;
         int softscore = 0;
-        HashMap<Integer, ArrayList<Integer>> empCounts = new HashMap<Integer, ArrayList<Integer>>();
+        Map<Integer, List<Integer>> empJobList = new HashMap<>();
 
         for (JobAssignment jobAssignment : jobSchedule.getJobAssignmentList()){
             System.out.println("JobAssignment:"+jobAssignment);
@@ -22,11 +23,15 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             Employee employee = jobAssignment.getEmployee();
 
             // Accumulate jobs assigned to each worker
-            if (empCounts.containsKey(employee.getEmployeeID())){
-                empCounts.get(employee.getEmployeeID()).add(job.getShift());
+            int empId = employee.getEmployeeID();
+            if (empJobList.containsKey(empId)){
+            	List<Integer> tmpList = empJobList.get(empId);
+            	tmpList.add(job.getShift());
+                empJobList.put(empId, tmpList);
             } else {
-                empCounts.put(employee.getEmployeeID(), new ArrayList<Integer>());
-                empCounts.get(employee.getEmployeeID()).add(job.getShift());
+            	List<Integer> tmpList = new ArrayList<>();
+            	tmpList.add(job.getShift());
+                empJobList.put(empId, tmpList);
             }
 
 
@@ -45,21 +50,21 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             // No. of jobs follow grade
             switch(employee.getEmployeeGrade()) {
                 case 1:
-                    if (empCounts.get(employee.getEmployeeID()).size() > 3){
+                    if (empJobList.get(employee.getEmployeeID()).size() > 3){
                         hardScore += -1;
                     }
                 case 2:
-                    if (empCounts.get(employee.getEmployeeID()).size() > 2){
+                    if (empJobList.get(employee.getEmployeeID()).size() > 2){
                         hardScore += -1;
                     }
                 case 3:
-                    if (empCounts.get(employee.getEmployeeID()).size() > 1){
+                    if (empJobList.get(employee.getEmployeeID()).size() > 1){
                         hardScore += -1;
                     }
             }
 
             // No consecutive shifts, same shift
-            for (Integer assignedShift : empCounts.get(employee.getEmployeeID())) {
+            for (Integer assignedShift : empJobList.get(employee.getEmployeeID())) {
                 if (Math.abs(assignedShift - job.getShift()) < 2){
                     hardScore += -1;
                 }

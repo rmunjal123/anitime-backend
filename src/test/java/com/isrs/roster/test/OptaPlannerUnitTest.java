@@ -49,7 +49,7 @@ public class OptaPlannerUnitTest {
 		List<Integer> preferedLocation2 = new ArrayList<Integer>();
 		shiftAvailabilty2.add(0);
 		shiftAvailabilty2.add(1);
-		preferedLocation2.add(2);
+		preferedLocation2.add(1);
 		emp2.setPreferredLocation(preferedLocation2);
 		emp2.setShiftAvailability(shiftAvailabilty2);
 		employeeList.add(emp2);
@@ -75,7 +75,7 @@ public class OptaPlannerUnitTest {
 		Job job2 = new Job();
 		job2.setJobID(2);
 		job2.setJobLocation(1);
-		job1.setShift(2);
+		job2.setShift(2);
 		jobList.add(job2);
 		
 		/*Job job3 = new Job();
