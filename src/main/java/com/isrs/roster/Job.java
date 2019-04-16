@@ -21,4 +21,7 @@ public void setJobLocation(Integer jobLocation) {
  public Integer getShift() {
      return shift;
  }
+ public void setShift(Integer shift) {
+	    this.shift = shift;
+ }
 }

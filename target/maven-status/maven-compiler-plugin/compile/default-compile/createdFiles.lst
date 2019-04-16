@@ -1,8 +1,15 @@
 com/isrs/roster/PersistableIdComparator.class
 com/isrs/roster/JobScheduleScoreCalculator.class
+com/isrs/roster/EmployeeSwapMove.class
 com/isrs/roster/JobAssignment.class
+com/isrs/roster/JobAssignmentSwapMove.class
 com/isrs/roster/App.class
-com/isrs/roster/Employee.class
 com/isrs/roster/AbstractPersistable.class
+com/isrs/roster/EmployeeMultipleChangeMove.class
 com/isrs/roster/JobSchedule.class
+com/isrs/roster/EmployeeChangeMove.class
+com/isrs/roster/Employee.class
 com/isrs/roster/Job.class
+com/isrs/roster/EmployeeSwapMoveFactory.class
+com/isrs/roster/JobScheduleMoveHelper.class
+com/isrs/roster/EmployeeChangeMoveFactory.class

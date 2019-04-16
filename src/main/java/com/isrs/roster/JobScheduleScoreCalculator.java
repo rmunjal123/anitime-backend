@@ -17,6 +17,7 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
         HashMap<Integer, ArrayList<Integer>> empCounts = new HashMap<Integer, ArrayList<Integer>>();
 
         for (JobAssignment jobAssignment : jobSchedule.getJobAssignmentList()){
+            System.out.println("JobAssignment:"+jobAssignment);
             Job job = jobAssignment.getJob();
             Employee employee = jobAssignment.getEmployee();
 
@@ -71,7 +72,10 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             }
 
         }
-
+        System.out.println("Hardscore:"+hardScore);
+        System.out.println("Softscore:"+softscore);
+        System.out.println(HardSoftScore.of(hardScore, softscore));
+        
         return HardSoftScore.of(hardScore, softscore);
     }
 }

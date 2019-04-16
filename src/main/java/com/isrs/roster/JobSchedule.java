@@ -12,7 +12,11 @@ import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 @PlanningSolution
 public class JobSchedule extends AbstractPersistable {
 
-    private List<Employee> employeeList;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private List<Employee> employeeList;
     private List<Job> jobList;
     private List<JobAssignment> jobAssignmentList;
     private HardSoftScore score;
