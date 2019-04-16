@@ -25,36 +25,48 @@ public class OptaPlannerUnitTest {
 
 		// Dummy Employee List from frontend
 		List<Employee> employeeList = new ArrayList<>();
-		for (int i = 1; i <= testSize; i++) {
-			Employee emp = new Employee();
-			emp.setName("Hello" + i);
-			emp.setEmployeeID(i * 100);
-			emp.setEmployeeGrade(1);
-			// not added preffered shift and preffered location so far
-			employeeList.add(emp);
-		}
 		
 		// create conflict employee
-		Employee emp = new Employee();
-		emp.setName("Hi");
-		emp.setEmployeeID(100);
-		emp.setEmployeeGrade(1);
-		emp.setPreferredLocation(null);
-		emp.setShiftAvailability(null);
+		Employee emp1 = new Employee();
+		emp1.setName("A");
+		emp1.setEmployeeID(100);
+		emp1.setEmployeeGrade(1);
+		//List<Integer> shiftAvailabilty = new ArrayList<Integer>();
+		//emp.setPreferredLocation(null);
+		//emp.setShiftAvailability(shiftAvailibility);
+		employeeList.add(emp1);
 		
-		List<Integer> shiftAvailabilty = new ArrayList<Integer>(2);
-		//emp.setShiftAvailability(shiftAvailability);
-		
-		// Dummy JobList from frontend
-		List<Job> jobList = new ArrayList<>();
-		for (int i = 1; i <= testSize; i++) {
-			Job job = new Job();
-			job.setJobID(i);
-			job.setJobLocation(i * 100);
-			jobList.add(job);
+		Employee emp2 = new Employee();
+		{
+		emp2.setName("B");
+		emp2.setEmployeeID(200);
+		emp2.setEmployeeGrade(2);
+		//List<Integer> shiftAvailabilty = new ArrayList<Integer>();
+		//emp.setPreferredLocation(null);
+		//emp.setShiftAvailability(shiftAvailibility);
+		employeeList.add(emp2);
 		}
 		
-		// create conflict job
+		Employee emp3 = new Employee();
+		emp3.setName("C");
+		emp3.setEmployeeID(300);
+		emp3.setEmployeeGrade(3);
+		//List<Integer> shiftAvailabilty = new ArrayList<Integer>();
+		//emp.setPreferredLocation(null);
+		//emp.setShiftAvailability(shiftAvailibility);
+		employeeList.add(emp3);
+		
+		// Dummy JobList from frontend
+		List<Job> jobList = new ArrayList<>();	
+		Job job1 = new Job();
+		job1.setJobID(1);
+		job1.setJobLocation(1);
+		jobList.add(job1);
+
+		Job job2 = new Job();
+		job2.setJobID(2);
+		job2.setJobLocation(2);
+		jobList.add(job2);
 		
 		
 		unsolvedCourseSchedule.setEmployeeList(employeeList);
@@ -62,6 +74,7 @@ public class OptaPlannerUnitTest {
 		unsolvedCourseSchedule.setJobAssignmentList(createJobAssignmentList(employeeList, jobList));
 		
 		System.out.println(jobList);
+		System.out.println(employeeList);
 	}
 
 //Initialization of Planning Entity
@@ -70,7 +83,7 @@ public class OptaPlannerUnitTest {
 		
 		for (int i=0; i<=JobAssignmentList.size(); i++) {
 			JobAssignment jobAssignment = new JobAssignment();
-			//jobAssignment.setEmployee(empList.get(i));
+			jobAssignment.setEmployee(empList.get(i));
 			jobAssignment.setJob(jobList.get(i));
 		}
 
