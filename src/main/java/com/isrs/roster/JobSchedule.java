@@ -10,7 +10,7 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 @PlanningSolution
-public class JobSchedule implements AbstractPersistable {
+public class JobSchedule extends AbstractPersistable {
 
     private List<Employee> employeeList;
     private List<Job> jobList;
