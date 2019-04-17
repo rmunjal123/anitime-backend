@@ -40,7 +40,14 @@ public class Employee {
 	public void setShiftAvailability(List<Integer> shiftAvailability) {
 		this.shiftAvailability = shiftAvailability;
 	}
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", employeeID=" + employeeID + ", employeeGrade=" + employeeGrade
+				+ ", preferredLocation=" + preferredLocation + ", shiftAvailability=" + shiftAvailability + "]";
+	}
 
+	
+	
 }
 
 

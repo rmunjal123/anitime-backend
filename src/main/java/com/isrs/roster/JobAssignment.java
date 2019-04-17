@@ -29,5 +29,13 @@ public class JobAssignment {
     public void setJob(Job job) {
         this.job = job;
     }
+
+	@Override
+	public String toString() {
+		return "JobAssignment [logger=" + logger + ", employee=" + employee + ", job=" + job + "]";
+	}
+    
+    
+    
     }
 

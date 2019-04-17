@@ -17,7 +17,7 @@ import com.isrs.roster.JobSchedule;
 public class OptaPlannerUnitTest {
 
 	 JobSchedule unsolvedCourseSchedule;
-	static final int testSize = 3;
+	static final int testSize = 3 ;
 
 	@BeforeEach
 	public  void setUp() {
@@ -47,41 +47,46 @@ public class OptaPlannerUnitTest {
 		emp2.setEmployeeGrade(2);
 		List<Integer> shiftAvailabilty2 = new ArrayList<Integer>();
 		List<Integer> preferedLocation2 = new ArrayList<Integer>();
-		shiftAvailabilty2.add(0);
-		shiftAvailabilty2.add(1);
-		preferedLocation2.add(1);
+		shiftAvailabilty2.add(2);
+		shiftAvailabilty2.add(3);
+		preferedLocation2.add(5);
 		emp2.setPreferredLocation(preferedLocation2);
 		emp2.setShiftAvailability(shiftAvailabilty2);
 		employeeList.add(emp2);
 
 		
-		/*Employee emp3 = new Employee();
+		Employee emp3 = new Employee();
 		emp3.setName("C");
 		emp3.setEmployeeID(300);
 		emp3.setEmployeeGrade(3);
 		List<Integer> shiftAvailabilty3 = new ArrayList<Integer>();
-		//emp.setPreferredLocation(null);
+		List<Integer> preferedLocation3 = new ArrayList<Integer>();
+		shiftAvailabilty3.add(2);
+		shiftAvailabilty3.add(3);
+		preferedLocation3.add(5);
+		emp3.setPreferredLocation(preferedLocation3);
 		emp3.setShiftAvailability(shiftAvailabilty3);
-		employeeList.add(emp3);*/
+		employeeList.add(emp3);
 		
 		// Dummy JobList from frontend
 		List<Job> jobList = new ArrayList<>();	
 		Job job1 = new Job();
 		job1.setJobID(1);
 		job1.setJobLocation(1);
-		job1.setShift(5);
+		job1.setShift(1);
 		jobList.add(job1);
 
 		Job job2 = new Job();
 		job2.setJobID(2);
 		job2.setJobLocation(1);
-		job2.setShift(2);
+		job2.setShift(1);
 		jobList.add(job2);
 		
-		/*Job job3 = new Job();
+		Job job3 = new Job();
 		job3.setJobID(3);
 		job3.setJobLocation(3);
-		jobList.add(job3);*/
+		job3.setShift(5);
+		jobList.add(job3);
 
 		
 		unsolvedCourseSchedule.setEmployeeList(employeeList);
@@ -99,19 +104,32 @@ public class OptaPlannerUnitTest {
 		
 		/*for (int i=0; i<JobAssignmentList.size(); i++) {
 			JobAssignment jobAssignment = new JobAssignment();
-			jobAssignment.setEmployee(empList.get(i));
+			//jobAssignment.setEmployee(empList.get(i));
 			jobAssignment.setJob(jobList.get(i));
 			JobAssignmentList.add(jobAssignment);
 		}*/
 		
-		JobAssignment jobAssignment = new JobAssignment();
-		jobAssignment.setEmployee(empList.get(0));
-		jobAssignment.setJob(jobList.get(0));
-		JobAssignmentList.add(jobAssignment);
-		jobAssignment.setEmployee(empList.get(1));
-		jobAssignment.setJob(jobList.get(1));
-		JobAssignmentList.add(jobAssignment);
+		JobAssignment jobAssignment1 = new JobAssignment();
+		jobAssignment1.setEmployee(empList.get(0));
+		jobAssignment1.setJob(jobList.get(0));
+		JobAssignmentList.add(jobAssignment1);
+		
+		JobAssignment jobAssignment2 = new JobAssignment();
+		jobAssignment2.setEmployee(empList.get(1));
+		jobAssignment2.setJob(jobList.get(1));
+		JobAssignmentList.add(jobAssignment2);
+		
+		JobAssignment jobAssignment3 = new JobAssignment();
+		jobAssignment3.setEmployee(empList.get(2));
+		jobAssignment3.setJob(jobList.get(2));
+		JobAssignmentList.add(jobAssignment3);
+		
+		//jobAssignment.setEmployee(empList.get(2));
+		//jobAssignment.setJob(jobList.get(2));
+		//JobAssignmentList.add(jobAssignment);
+
 		System.out.println("JobAssignmentList:"+JobAssignmentList.size());
+		System.out.println("JobAssignmentList:"+JobAssignmentList);
 		return JobAssignmentList;
 	}
 
@@ -134,10 +152,12 @@ public class OptaPlannerUnitTest {
 		SolverFactory<JobSchedule> solverFactory = SolverFactory.createFromXmlResource("courseScheduleSolverConfiguration.xml");
 		Solver<JobSchedule> solver = solverFactory.buildSolver();
 		JobSchedule solvedCourseSchedule = solver.solve(unsolvedCourseSchedule);
-		System.out.println(solvedCourseSchedule.toString());
-
+		System.out.println("Solution:"+solvedCourseSchedule.toString());
+		
+        
 		// Assert.assertNotNull(solvedCourseSchedule.getScore());
 		// Assert.assertEquals(0, solvedCourseSchedule.getScore().getHardScore());
 	}
+	
 
 }

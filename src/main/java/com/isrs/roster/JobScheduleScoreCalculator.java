@@ -15,7 +15,7 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
     public HardSoftScore calculateScore(JobSchedule jobSchedule) {
         int hardScore = 0;
         int softscore = 0;
-        Map<Integer, List<Integer>> empJobList = new HashMap<>();
+        Map<Integer, List<Job>> empJobList = new HashMap<>();
 
         for (JobAssignment jobAssignment : jobSchedule.getJobAssignmentList()){
             System.out.println("JobAssignment:"+jobAssignment);
@@ -25,12 +25,12 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             // Accumulate jobs assigned to each worker
             int empId = employee.getEmployeeID();
             if (empJobList.containsKey(empId)){
-            	List<Integer> tmpList = empJobList.get(empId);
-            	tmpList.add(job.getShift());
+            	List<Job> tmpList = empJobList.get(empId);
+            	tmpList.add(job);
                 empJobList.put(empId, tmpList);
             } else {
-            	List<Integer> tmpList = new ArrayList<>();
-            	tmpList.add(job.getShift());
+            	List<Job> tmpList = new ArrayList<>();
+            	tmpList.add(job);
                 empJobList.put(empId, tmpList);
             }
 
@@ -64,8 +64,8 @@ public class JobScheduleScoreCalculator implements EasyScoreCalculator<JobSchedu
             }
 
             // No consecutive shifts, same shift
-            for (Integer assignedShift : empJobList.get(employee.getEmployeeID())) {
-                if (Math.abs(assignedShift - job.getShift()) < 2){
+            for (Job assignedJob : empJobList.get(employee.getEmployeeID())) {
+                if (Math.abs(assignedJob.getShift() - job.getShift()) < 2 && assignedJob.getJobID() != job.getJobID()){
                     hardScore += -1;
                 }
             }

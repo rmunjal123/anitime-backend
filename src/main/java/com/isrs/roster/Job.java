@@ -24,4 +24,10 @@ public void setJobLocation(Integer jobLocation) {
  public void setShift(Integer shift) {
 	    this.shift = shift;
  }
+@Override
+public String toString() {
+	return "Job [jobID=" + jobID + ", jobLocation=" + jobLocation + ", shift=" + shift + "]";
+}
+ 
+ 
 }
